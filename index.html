@@ -734,8 +734,8 @@
                       marginBottom: '8px',
                       cursor: 'pointer',
                       border: '1px solid',
-                      borderColor: selectedPersona?.id === persona.id ? 'var(--accent-purple)' : 'var(--border)',
-                      background: selectedPersona?.id === persona.id ? 'rgba(139, 92, 246, 0.1)' : 'var(--bg-primary)',
+                      borderColor: selectedPersona?.id === persona.id ? 'var(--text-muted)' : 'var(--border)',
+                      background: selectedPersona?.id === persona.id ? 'var(--bg-tertiary)' : 'var(--bg-primary)',
                       transition: 'all 0.2s ease'
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
@@ -808,14 +808,30 @@
                       width: '100%',
                       marginTop: '8px',
                       padding: '10px 16px',
-                      background: customQuery.trim() ? 'var(--accent-purple)' : 'var(--bg-tertiary)',
-                      border: 'none',
-                      borderRadius: '8px',
-                      color: customQuery.trim() ? 'white' : 'var(--text-muted)',
+                      background: customQuery.trim() ? 'var(--bg-tertiary)' : 'var(--bg-primary)',
+                      border: '1px solid',
+                      borderColor: customQuery.trim() ? 'var(--border-hover)' : 'var(--border)',
+                      borderRadius: '6px',
+                      color: customQuery.trim() ? 'var(--text-primary)' : 'var(--text-muted)',
                       fontSize: '12px',
                       fontWeight: 500,
                       cursor: customQuery.trim() ? 'pointer' : 'default',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.1s ease',
+                      transform: 'translateY(0)'
+                    }}
+                    onMouseDown={(e) => {
+                      if (customQuery.trim()) {
+                        e.currentTarget.style.transform = 'translateY(1px)';
+                        e.currentTarget.style.background = 'var(--bg-primary)';
+                      }
+                    }}
+                    onMouseUp={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.background = 'var(--bg-tertiary)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.background = customQuery.trim() ? 'var(--bg-tertiary)' : 'var(--bg-primary)';
                     }}
                   >
                     Search Corpus
@@ -863,7 +879,7 @@
                       width: '40px',
                       height: '40px',
                       border: '3px solid var(--bg-tertiary)',
-                      borderTopColor: 'var(--accent-purple)',
+                      borderTopColor: 'var(--text-muted)',
                       borderRadius: '50%',
                       animation: 'spin 1s linear infinite',
                       marginBottom: '16px'
@@ -1071,7 +1087,7 @@
                     width: '48px',
                     height: '48px',
                     border: '3px solid var(--bg-tertiary)',
-                    borderTopColor: 'var(--accent-blue)',
+                    borderTopColor: 'var(--text-muted)',
                     borderRadius: '50%',
                     animation: 'spin 1s linear infinite',
                     marginBottom: '20px'
