@@ -97,8 +97,9 @@
     // Production: runs local. Demo: remote endpoint for demonstration.
     const ARBITER_API = 'https://api.arbiter.traut.ai/public/compare';
 
-    // Intelligence corpus - the exact signals that created the magic moments
+    // Intelligence corpus - 18 essential signals that create the moments
     const INTELLIGENCE_CORPUS = [
+      // THE HUMAN STORIES (5) — For Babusya, Journalist, Zelensky
       {
         id: 'HUMINT-001',
         timestamp: '2024-12-10T21:30:00Z',
@@ -116,15 +117,7 @@
         region: 'Eastern District'
       },
       {
-        id: 'ENVIRO-003',
-        timestamp: '2024-12-11T06:00:00Z',
-        source: 'MASINT',
-        classification: 'SECRET',
-        content: 'Fish behavior anomalies detected in border river. Schools moving away from northern banks. Local fishermen report catches down 80% in past 72 hours. Pattern preceded ground operations in 2014 by approximately 96 hours.',
-        region: 'River Corridor'
-      },
-      {
-        id: 'HUMINT-004',
+        id: 'HUMINT-003',
         timestamp: '2024-12-10T11:00:00Z',
         source: 'HUMINT',
         classification: 'CONFIDENTIAL',
@@ -132,7 +125,7 @@
         region: 'Border Region'
       },
       {
-        id: 'HUMINT-005',
+        id: 'HUMINT-004',
         timestamp: '2024-12-10T18:00:00Z',
         source: 'HUMINT',
         classification: 'CONFIDENTIAL',
@@ -140,167 +133,41 @@
         region: 'Border Region'
       },
       {
-        id: 'ENVIRO-006',
-        timestamp: '2024-12-11T04:30:00Z',
-        source: 'HUMINT',
-        classification: 'UNCLASSIFIED',
-        content: 'Stray dogs observed fleeing border areas in unusual numbers. Animal shelter in nearby town reports 300% increase in strays arriving from east. Local veterinarian notes animals appear stressed, disoriented. Pattern not explained by weather or food availability.',
-        region: 'Border Region'
-      },
-      {
-        id: 'OSINT-007',
-        timestamp: '2024-12-10T16:00:00Z',
-        source: 'OSINT',
-        classification: 'UNCLASSIFIED',
-        content: 'Wedding cancellations spike 400% in border district. Venues report mass postponements citing "family circumstances." Florists and caterers confirm sudden order cancellations. Pattern concentrated in military family demographics.',
-        region: 'Multiple Districts'
-      },
-      {
-        id: 'HUMINT-008',
-        timestamp: '2024-12-11T08:00:00Z',
-        source: 'HUMINT',
-        classification: 'CONFIDENTIAL',
-        content: 'Street vendors disappearing from border town markets. Stalls that operated for years now empty. Remaining vendors report others left "to be with family." Market activity down 60% despite no official warnings.',
-        region: 'Border Region'
-      },
-      {
-        id: 'OSINT-009',
+        id: 'OSINT-005',
         timestamp: '2024-12-10T22:00:00Z',
         source: 'OSINT',
         classification: 'UNCLASSIFIED',
         content: 'Military families posting farewell messages on social media. Geolocated to garrison towns. Posts reference "praying for safe return" and "until we meet again." Engagement patterns suggest genuine emotional content, not coordinated messaging.',
         region: 'Central Region'
       },
+      // THE ENVIRONMENTAL (3) — For The Land
       {
-        id: 'HUMINT-010',
-        timestamp: '2024-12-11T09:00:00Z',
+        id: 'MASINT-006',
+        timestamp: '2024-12-11T06:00:00Z',
+        source: 'MASINT',
+        classification: 'SECRET',
+        content: 'Fish behavior anomalies detected in border river. Schools moving away from northern banks. Local fishermen report catches down 80% in past 72 hours. Pattern preceded ground operations in 2014 by approximately 96 hours.',
+        region: 'River Corridor'
+      },
+      {
+        id: 'HUMINT-007',
+        timestamp: '2024-12-11T04:30:00Z',
         source: 'HUMINT',
-        classification: 'SECRET',
-        content: 'Pharmacy run on trauma supplies in border towns. Bandages, tourniquets, blood clotting agents sold out across 12 locations. Purchases made by individuals, not institutions. Pattern suggests population-level anticipatory behavior.',
-        region: 'Border Region'
-      },
-      {
-        id: 'SIGINT-011',
-        timestamp: '2024-12-11T02:00:00Z',
-        source: 'SIGINT',
-        classification: 'TOP SECRET',
-        content: 'GPS jamming detected across 200km front. Jamming intensity increased 400% over 48 hours. Pattern consistent with pre-operational electronic warfare preparation. Civilian navigation systems affected in border zone.',
-        region: 'Border Region'
-      },
-      {
-        id: 'SIGINT-012',
-        timestamp: '2024-12-11T00:00:00Z',
-        source: 'SIGINT',
-        classification: 'TOP SECRET',
-        content: 'Encrypted radio traffic tripled on military command networks. New callsigns detected not matching any known unit designations. Frequency hopping patterns shifted from training protocols to operational configurations.',
-        region: 'Multiple Sectors'
-      },
-      {
-        id: 'SIGINT-013',
-        timestamp: '2024-12-11T03:00:00Z',
-        source: 'SIGINT',
-        classification: 'TOP SECRET',
-        content: 'Unusual silence on military frequencies normally active. Routine traffic ceased at 0200 hours. Pattern consistent with communications blackout preceding operations. Similar signature observed 72 hours before previous offensive.',
-        region: 'Northern Sector'
-      },
-      {
-        id: 'TECHINT-014',
-        timestamp: '2024-12-10T20:00:00Z',
-        source: 'TECHINT',
-        classification: 'SECRET',
-        content: 'Electricity consumption patterns show 24-hour activity at forward bases. Facilities normally dark 2200-0600 now show continuous power draw. Thermal signatures indicate vehicle maintenance and equipment preparation.',
-        region: 'Forward Positions'
-      },
-      {
-        id: 'SATINT-015',
-        timestamp: '2024-12-11T10:00:00Z',
-        source: 'SATINT',
-        classification: 'SECRET',
-        content: 'Satellite imagery confirms evacuation buses staged in Crimean towns near Kerch bridge. 47 buses identified, civilian markings. Positioned at schools and community centers. No public evacuation announced.',
-        region: 'Crimea'
-      },
-      {
-        id: 'HUMINT-016',
-        timestamp: '2024-12-10T12:00:00Z',
-        source: 'HUMINT',
-        classification: 'SECRET',
-        content: 'Russian VIPs evacuating families from Crimea. Private aircraft departures from Simferopol increased 600%. Destination primarily Moscow and Dubai. Evacuees include regional administration families and business elites.',
-        region: 'Crimea'
-      },
-      {
-        id: 'OSINT-017',
-        timestamp: '2024-12-11T07:00:00Z',
-        source: 'OSINT',
         classification: 'UNCLASSIFIED',
-        content: 'Russian state media amplifying nuclear rhetoric. Coverage of tactical nuclear capabilities increased 300%. Messaging emphasizes "all options" for defending territorial integrity. Pattern suggests information preparation for escalation.',
-        region: 'Media Environment'
+        content: 'Stray dogs observed fleeing border areas in unusual numbers. Animal shelter in nearby town reports 300% increase in strays arriving from east. Local veterinarian notes animals appear stressed, disoriented.',
+        region: 'Border Region'
       },
       {
-        id: 'FININT-018',
-        timestamp: '2024-12-10T15:00:00Z',
-        source: 'FININT',
-        classification: 'SECRET',
-        content: 'Chinese satellite tasking surge detected over Black Sea region. Commercial imagery purchases increased 800% from baseline. Requests concentrated on port facilities and bridge infrastructure. Buyer analysis indicates state-affiliated entities.',
-        region: 'Black Sea'
-      },
-      {
-        id: 'HUMINT-019',
-        timestamp: '2024-12-11T11:00:00Z',
-        source: 'HUMINT',
-        classification: 'SECRET',
-        content: 'Partisan activity reported along Crimean supply routes. Three incidents of rail disruption in 48 hours. Pattern suggests coordinated harassment of logistics. Russian response indicates concern about sustainment vulnerability.',
-        region: 'Crimea Approaches'
-      },
-      {
-        id: 'ENVIRO-020',
+        id: 'MASINT-008',
         timestamp: '2024-12-11T05:00:00Z',
         source: 'MASINT',
         classification: 'CONFIDENTIAL',
         content: 'Migratory birds altering flight patterns over border zone. Flocks observed diverting around areas with no visible obstruction. Wildlife biologists note pattern inconsistent with normal seasonal behavior. Similar deviation preceded 2022 incursion.',
         region: 'Border Airspace'
       },
+      // THE SILENCES (4) — For The Silence persona
       {
-        id: 'HUMINT-021',
-        timestamp: '2024-12-10T19:00:00Z',
-        source: 'HUMINT',
-        classification: 'CONFIDENTIAL',
-        content: 'Border crossing wait times dropped to zero. Normally 2-3 hour delays now processed immediately. Guards appear distracted, minimal inspection. Local interpretation: "They know something is coming and do not care about smuggling today."',
-        region: 'Border Crossing'
-      },
-      {
-        id: 'GEOINT-022',
-        timestamp: '2024-12-11T08:30:00Z',
-        source: 'GEOINT',
-        classification: 'SECRET',
-        content: 'Ground vibration sensors detect heavy vehicle movement at night. Seismic signature consistent with armored column. Movement pattern suggests staging at tree lines and covered positions. Activity ceased before dawn.',
-        region: 'Northern Sector'
-      },
-      {
-        id: 'HUMINT-023',
-        timestamp: '2024-12-10T13:00:00Z',
-        source: 'HUMINT',
-        classification: 'SECRET',
-        content: 'Field hospital procurement surge detected. Blood products, surgical supplies, body bags ordered in quantities 500% above baseline. Delivery locations consistent with forward medical staging. No training exercise announced.',
-        region: 'Rear Areas'
-      },
-      {
-        id: 'SIGINT-024',
-        timestamp: '2024-12-11T01:00:00Z',
-        source: 'SIGINT',
-        classification: 'TOP SECRET',
-        content: 'Cell tower coverage shifted along border. New temporary towers activated in forest areas. Pattern provides coverage for assembly areas not served by existing infrastructure. Similar preparation observed before previous operations.',
-        region: 'Border Region'
-      },
-      {
-        id: 'HUMINT-025',
-        timestamp: '2024-12-10T17:00:00Z',
-        source: 'HUMINT',
-        classification: 'CONFIDENTIAL',
-        content: 'Conscript leave cancellations reported across multiple units. Personnel told to "remain available." Families report soldiers unable to attend planned events. Pattern affects units in forward positions disproportionately.',
-        region: 'Multiple Units'
-      },
-      {
-        id: 'OSINT-026',
+        id: 'OSINT-009',
         timestamp: '2024-12-11T12:00:00Z',
         source: 'OSINT',
         classification: 'UNCLASSIFIED',
@@ -308,7 +175,7 @@
         region: 'Digital Environment'
       },
       {
-        id: 'OSINT-027',
+        id: 'OSINT-010',
         timestamp: '2024-12-11T13:00:00Z',
         source: 'OSINT',
         classification: 'UNCLASSIFIED',
@@ -316,15 +183,7 @@
         region: 'Digital Environment'
       },
       {
-        id: 'OSINT-028',
-        timestamp: '2024-12-11T14:00:00Z',
-        source: 'OSINT',
-        classification: 'UNCLASSIFIED',
-        content: 'Troop rotation announcements normally published weekly went silent. Defense ministry website shows no updates for 9 days. Press office not responding to routine inquiries. Pattern unprecedented in 18-month observation baseline.',
-        region: 'Official Communications'
-      },
-      {
-        id: 'OSINT-029',
+        id: 'OSINT-011',
         timestamp: '2024-12-11T15:00:00Z',
         source: 'OSINT',
         classification: 'UNCLASSIFIED',
@@ -332,70 +191,120 @@
         region: 'Official Communications'
       },
       {
-        id: 'TECHINT-030',
+        id: 'TECHINT-012',
         timestamp: '2024-12-11T16:00:00Z',
         source: 'TECHINT',
         classification: 'SECRET',
-        content: 'Flight tracking data gaps appear over military airfields. ADS-B coverage shows aircraft disappearing from tracking near bases. Pattern consistent with transponder deactivation or jamming. Commercial flights rerouting around affected areas without explanation.',
+        content: 'Flight tracking data gaps appear over military airfields. ADS-B coverage shows aircraft disappearing from tracking near bases. Pattern consistent with transponder deactivation or jamming. Commercial flights rerouting around affected areas.',
         region: 'Airspace'
+      },
+      // THE CRIMEA SIGNALS (3) — For World Arbitration / Kerch hypothesis
+      {
+        id: 'SATINT-013',
+        timestamp: '2024-12-11T10:00:00Z',
+        source: 'SATINT',
+        classification: 'SECRET',
+        content: 'Satellite imagery confirms evacuation buses staged in Crimean towns near Kerch bridge. 47 buses identified, civilian markings. Positioned at schools and community centers. No public evacuation announced.',
+        region: 'Crimea'
+      },
+      {
+        id: 'HUMINT-014',
+        timestamp: '2024-12-10T12:00:00Z',
+        source: 'HUMINT',
+        classification: 'SECRET',
+        content: 'Russian VIPs evacuating families from Crimea. Private aircraft departures from Simferopol increased 600%. Destination primarily Moscow and Dubai. Evacuees include regional administration families and business elites.',
+        region: 'Crimea'
+      },
+      {
+        id: 'HUMINT-015',
+        timestamp: '2024-12-11T11:00:00Z',
+        source: 'HUMINT',
+        classification: 'SECRET',
+        content: 'Partisan activity reported along Crimean supply routes. Three incidents of rail disruption in 48 hours. Pattern suggests coordinated harassment of logistics. Russian response indicates concern about sustainment vulnerability.',
+        region: 'Crimea Approaches'
+      },
+      // THE OPERATIONAL (3) — For Military Analyst
+      {
+        id: 'SIGINT-016',
+        timestamp: '2024-12-11T00:00:00Z',
+        source: 'SIGINT',
+        classification: 'TOP SECRET',
+        content: 'Encrypted radio traffic tripled on military command networks. New callsigns detected not matching any known unit designations. Frequency hopping patterns shifted from training protocols to operational configurations.',
+        region: 'Multiple Sectors'
+      },
+      {
+        id: 'SIGINT-017',
+        timestamp: '2024-12-11T02:00:00Z',
+        source: 'SIGINT',
+        classification: 'TOP SECRET',
+        content: 'GPS jamming detected across 200km front. Jamming intensity increased 400% over 48 hours. Pattern consistent with pre-operational electronic warfare preparation. Civilian navigation systems affected in border zone.',
+        region: 'Border Region'
+      },
+      {
+        id: 'SIGINT-018',
+        timestamp: '2024-12-11T03:00:00Z',
+        source: 'SIGINT',
+        classification: 'TOP SECRET',
+        content: 'Unusual silence on military frequencies normally active. Routine traffic ceased at 0200 hours. Pattern consistent with communications blackout preceding operations. Similar signature observed 72 hours before previous offensive.',
+        region: 'Northern Sector'
       }
     ];
 
-    // Perspective personas - the exact observers that created magic moments
+    // Perspective personas - geometric markers, words do the work
     const PERSONAS = [
       {
         id: 'journalist',
         name: 'War Correspondent',
-        icon: '📰',
+        marker: '○',
         description: 'Finds the human story that leads the broadcast',
         query: 'As a war correspondent looking for the emotional truth of what is happening, what details would I lead my story with? What moments capture the human experience of war approaching?'
       },
       {
         id: 'babusya',
-        name: 'Babusya (Grandmother)',
-        icon: '👵',
+        name: 'Babusya',
+        marker: '○',
         description: 'Survived the last war. Knows the signs.',
         query: 'As an elderly grandmother in a border village who survived previous wars, what signs would tell me it is time to take my grandchildren and leave? What would I notice that officials would not announce?'
       },
       {
         id: 'analyst',
-        name: 'Military Intelligence Analyst',
-        icon: '🎖️',
+        name: 'Military Analyst',
+        marker: '△',
         description: 'Tracks operational indicators and warnings',
         query: 'As a military intelligence analyst tracking indicators and warnings, what signals demand immediate attention? What patterns suggest transition from posture to action?'
       },
       {
         id: 'silence',
         name: 'The Silence',
-        icon: '🕳️',
-        description: 'Finds what is NOT happening. The gaps. The absences.',
+        marker: '◇',
+        description: 'Finds what is NOT happening. The gaps.',
         query: 'What is conspicuously absent? What normally happens that has stopped? What voices have gone quiet? What data has gaps? What routines have broken? The silence before the storm - what is NOT happening that should be?'
       },
       {
         id: 'humanitarian',
         name: 'Humanitarian Coordinator',
-        icon: '🏥',
+        marker: '△',
         description: 'Must position resources before displacement begins',
         query: 'As a humanitarian aid coordinator who must pre-position resources, what signals indicate civilian displacement is imminent? What would tell me to activate emergency protocols?'
       },
       {
         id: 'land',
         name: 'The Land Itself',
-        icon: '🌍',
-        description: 'The rivers, animals, earth feel what humans ignore',
+        marker: '□',
+        description: 'Rivers, animals, earth feel what humans ignore',
         query: 'As the land itself - the rivers, the soil, the animals, the air - what disturbances do I feel in my body? What is different in the fish, the birds, the dogs? What trembles that should be still?'
       },
       {
         id: 'zelensky',
         name: 'President Zelensky',
-        icon: '🇺🇦',
+        marker: '○',
         description: 'Must know what his people face today',
         query: 'As President Zelensky needing to understand what my people face, what would tell me if my citizens will see war today? What signals speak to the human cost my nation is about to bear?'
       },
       {
         id: 'russian_commander',
         name: 'Russian Commander',
-        icon: '⚔️',
+        marker: '△',
         description: 'Needs to know if preparations have been detected',
         query: 'As the Russian commander responsible for this operation, what signals would tell me my preparations have been detected? What would indicate the enemy knows we are coming?'
       }
@@ -614,7 +523,7 @@
                   height: '1px',
                   background: 'var(--border-hover)'
                 }} />
-                <div style={{ fontSize: '32px', marginBottom: '20px', color: 'var(--text-muted)' }}>⬡</div>
+                <div style={{ fontSize: '24px', marginBottom: '20px', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}>○ △ □</div>
                 <h2 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '12px' }}>
                   Perspective Shift
                 </h2>
@@ -662,7 +571,7 @@
                   height: '1px',
                   background: 'var(--border-hover)'
                 }} />
-                <div style={{ fontSize: '32px', marginBottom: '20px', color: 'var(--text-muted)' }}>◇</div>
+                <div style={{ fontSize: '24px', marginBottom: '20px', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}>◇</div>
                 <h2 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '12px' }}>
                   World Arbitration
                 </h2>
@@ -691,7 +600,7 @@
               fontFamily: 'JetBrains Mono',
               letterSpacing: '1px'
             }}>
-              ENGINE: ARBITER-72D v0.9 • LOCAL • DETERMINISTIC
+              ENGINE: ARBITER-72D v0.9 • 26MB • DETERMINISTIC
             </div>
           </div>
         );
@@ -743,7 +652,7 @@
                 fontFamily: 'JetBrains Mono',
                 letterSpacing: '1px'
               }}>
-                ARBITER-72D • LOCAL
+                ARBITER-72D • 26MB
               </div>
             </header>
 
@@ -780,9 +689,13 @@
                       background: selectedPersona?.id === persona.id ? 'rgba(139, 92, 246, 0.1)' : 'var(--bg-primary)',
                       transition: 'all 0.2s ease'
                     }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                        <span style={{ fontSize: '24px' }}>{persona.icon}</span>
-                        <span style={{ fontWeight: 500 }}>{persona.name}</span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
+                        <span style={{ 
+                          fontSize: '14px', 
+                          color: selectedPersona?.id === persona.id ? 'var(--text-primary)' : 'var(--text-muted)',
+                          fontFamily: 'JetBrains Mono'
+                        }}>{persona.marker}</span>
+                        <span style={{ fontWeight: 500, fontSize: '13px' }}>{persona.name}</span>
                       </div>
                       <div style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
                         {persona.description}
@@ -850,7 +763,7 @@
                     color: 'var(--text-muted)',
                     textAlign: 'center'
                   }}>
-                    <div style={{ fontSize: '48px', marginBottom: '16px', opacity: 0.5 }}>◈</div>
+                    <div style={{ fontSize: '32px', marginBottom: '16px', opacity: 0.3, fontFamily: 'JetBrains Mono' }}>○</div>
                     <div style={{ fontSize: '16px', marginBottom: '8px' }}>Select an observer</div>
                     <div style={{ fontSize: '13px' }}>Same signals. Different meanings.</div>
                   </div>
@@ -866,7 +779,7 @@
                       alignItems: 'center',
                       gap: '16px'
                     }}>
-                      <span style={{ fontSize: '28px' }}>{selectedPersona.icon}</span>
+                      <span style={{ fontSize: '18px', fontFamily: 'JetBrains Mono', color: 'var(--text-muted)' }}>{selectedPersona.marker}</span>
                       <div>
                         <div style={{ fontSize: '16px', fontWeight: 600, marginBottom: '2px' }}>{selectedPersona.name}</div>
                         <div style={{ color: 'var(--text-muted)', fontSize: '12px' }}>
@@ -936,14 +849,31 @@
                               {doc.region}
                             </span>
                           </div>
-                          <div style={{
-                            fontFamily: 'JetBrains Mono',
-                            fontSize: '18px',
-                            fontWeight: 600,
-                            color: doc.score >= 0.6 ? 'var(--accent-emerald)' : 
-                                  doc.score >= 0.4 ? 'var(--accent-amber)' : 'var(--text-muted)'
-                          }}>
-                            {doc.score.toFixed(3)}
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <div style={{
+                              width: '60px',
+                              height: '4px',
+                              background: 'var(--bg-tertiary)',
+                              borderRadius: '2px',
+                              overflow: 'hidden'
+                            }}>
+                              <div style={{
+                                width: `${doc.score * 100}%`,
+                                height: '100%',
+                                background: doc.score >= 0.6 ? 'var(--accent-emerald)' : 
+                                           doc.score >= 0.4 ? 'var(--accent-amber)' : 'var(--text-muted)',
+                                transition: 'width 0.5s ease'
+                              }} />
+                            </div>
+                            <span style={{
+                              fontFamily: 'JetBrains Mono',
+                              fontSize: '13px',
+                              fontWeight: 500,
+                              color: doc.score >= 0.6 ? 'var(--accent-emerald)' : 
+                                    doc.score >= 0.4 ? 'var(--accent-amber)' : 'var(--text-muted)'
+                            }}>
+                              {doc.score.toFixed(3)}
+                            </span>
                           </div>
                         </div>
                         <div style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.7 }}>
@@ -1005,7 +935,7 @@
                 fontFamily: 'JetBrains Mono',
                 letterSpacing: '1px'
               }}>
-                ARBITER-72D • LOCAL
+                ARBITER-72D • 26MB
               </div>
             </header>
 
@@ -1035,101 +965,68 @@
                 <>
                   {/* Winner Banner */}
                   <div className="fade-in" style={{
-                    padding: '32px',
-                    borderRadius: '16px',
+                    padding: '40px',
+                    borderRadius: '12px',
                     marginBottom: '32px',
-                    background: `linear-gradient(135deg, ${arbitrationResults.winner.hypothesis.color}22 0%, transparent 100%)`,
-                    border: `1px solid ${arbitrationResults.winner.hypothesis.color}44`,
+                    background: 'var(--bg-secondary)',
+                    border: `1px solid ${arbitrationResults.winner.hypothesis.color}`,
                     textAlign: 'center'
                   }}>
-                    <div style={{ fontSize: '11px', letterSpacing: '3px', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                    <div style={{ fontSize: '10px', letterSpacing: '3px', color: 'var(--text-muted)', marginBottom: '16px' }}>
                       RESOLVED WORLD STATE
                     </div>
-                    <div style={{ fontSize: '32px', fontWeight: 700, marginBottom: '8px', color: arbitrationResults.winner.hypothesis.color }}>
+                    <div style={{ fontSize: '28px', fontWeight: 600, marginBottom: '12px', color: 'var(--text-primary)' }}>
                       {arbitrationResults.winner.hypothesis.name}
                     </div>
-                    <div style={{ fontSize: '48px', fontWeight: 700, fontFamily: 'JetBrains Mono', marginBottom: '16px' }}>
+                    <div style={{ 
+                      fontSize: '42px', 
+                      fontWeight: 600, 
+                      fontFamily: 'JetBrains Mono', 
+                      marginBottom: '16px',
+                      color: arbitrationResults.winner.hypothesis.color
+                    }}>
                       {arbitrationResults.winner.avgScore.toFixed(4)}
                     </div>
                     <div style={{
-                      display: 'inline-block',
-                      padding: '8px 16px',
-                      background: 'rgba(16, 185, 129, 0.15)',
-                      borderRadius: '8px',
-                      color: 'var(--accent-emerald)',
-                      fontSize: '14px'
+                      fontSize: '13px',
+                      color: 'var(--text-muted)'
                     }}>
-                      +{arbitrationResults.delta}% delta vs runner-up
+                      +{arbitrationResults.delta}% delta vs {arbitrationResults.runnerUp.hypothesis.name}
                     </div>
                   </div>
 
-                  {/* All Hypotheses */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '32px' }}>
-                    {arbitrationResults.hypotheses.map((h, idx) => (
+                  {/* Other Hypotheses - subordinate row */}
+                  <div style={{ 
+                    display: 'flex', 
+                    flexWrap: 'wrap',
+                    gap: '12px', 
+                    marginBottom: '32px',
+                    justifyContent: 'center'
+                  }}>
+                    {arbitrationResults.hypotheses.slice(1).map((h, idx) => (
                       <div
                         key={h.hypothesis.id}
                         className="fade-in"
                         style={{
-                          animationDelay: `${idx * 0.1}s`,
-                          padding: '16px',
-                          borderRadius: '10px',
+                          animationDelay: `${(idx + 1) * 0.1}s`,
+                          padding: '12px 16px',
+                          borderRadius: '8px',
                           background: 'var(--bg-secondary)',
-                          border: '1px solid',
-                          borderColor: idx === 0 ? h.hypothesis.color : 'var(--border)',
-                          position: 'relative',
-                          overflow: 'hidden'
+                          border: '1px solid var(--border)',
+                          minWidth: '140px',
+                          textAlign: 'center'
                         }}
                       >
+                        <div style={{ fontSize: '11px', fontWeight: 500, color: 'var(--text-secondary)', marginBottom: '4px' }}>
+                          {h.hypothesis.name}
+                        </div>
                         <div style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          height: '2px',
-                          background: h.hypothesis.color
-                        }} />
-                        
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                          <div>
-                            <div style={{ fontSize: '10px', color: 'var(--text-muted)', marginBottom: '2px' }}>
-                              #{idx + 1}
-                            </div>
-                            <div style={{ fontWeight: 600, fontSize: '13px', color: h.hypothesis.color }}>
-                              {h.hypothesis.name}
-                            </div>
-                          </div>
-                          <div style={{
-                            fontFamily: 'JetBrains Mono',
-                            fontSize: '16px',
-                            fontWeight: 600,
-                            color: idx === 0 ? h.hypothesis.color : 'var(--text-secondary)'
-                          }}>
-                            {h.avgScore.toFixed(3)}
-                          </div>
+                          fontFamily: 'JetBrains Mono',
+                          fontSize: '13px',
+                          color: 'var(--text-muted)'
+                        }}>
+                          {h.avgScore.toFixed(3)}
                         </div>
-
-                        <div style={{ fontSize: '10px', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                          TOP SIGNAL
-                        </div>
-                        {h.topDocs.slice(0, 1).map((d, i) => (
-                          <div key={i} style={{
-                            padding: '8px',
-                            background: 'var(--bg-primary)',
-                            borderRadius: '6px',
-                            marginBottom: '6px',
-                            fontSize: '12px'
-                          }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                              <span style={{ color: 'var(--text-muted)' }}>{d.doc.id}</span>
-                              <span style={{ fontFamily: 'JetBrains Mono', color: h.hypothesis.color }}>
-                                {d.score.toFixed(3)}
-                              </span>
-                            </div>
-                            <div style={{ color: 'var(--text-secondary)', lineHeight: 1.4 }}>
-                              {d.doc.content.substring(0, 80)}...
-                            </div>
-                          </div>
-                        ))}
                       </div>
                     ))}
                   </div>
